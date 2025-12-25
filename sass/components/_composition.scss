@@ -1,0 +1,37 @@
+.composition {
+    position: relative; /* to be able to position the photos absolutely within the composition */
+   
+    &__photo {
+        width: 55%; /* for responsive design */
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        position: absolute; /* to be able to position the photos absolutely within the composition */
+        z-index: 10;
+        transition: all .2s;
+
+        outline-offset: 2rem; /* add space between the photo and the outline */
+
+        &--p1 { /* Photo 1 */
+            left: 0;
+            top: -2rem;
+        }
+        &--p2 { /* Photo 2 */
+            right: 0;
+            top: 2rem;
+        }
+        &--p3 { /* Photo 3 */
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20; /* bring the photo to the front */
+            outline: 15px solid $color-primary;
+        }
+    }
+
+    &:hover &__photo:not(:hover) { /* when the photo is not hovered, scale it down */
+        transform: scale(.95);
+    }
+}

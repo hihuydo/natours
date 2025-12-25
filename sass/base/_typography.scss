@@ -41,3 +41,20 @@ body {
     }
 }
 
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block; /* Make the width fit the width of the text */
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make the text transparent */
+    letter-spacing: 2px;
+
+    transition: all .4s; /* Smooth transition for all properties over 0.4 seconds */
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1); /* Skew the text to the right and left */
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2); /* Add shadow (x, y, blur, color) on hover */
+    }
+}

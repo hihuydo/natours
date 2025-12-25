@@ -1,6 +1,6 @@
 .row {
     max-width: $grid-width;
-    background-color: #eee;
+    /* background-color: #eee; */
     margin: 0 auto; /* Center the block element inside another block element */
 
     /* &:last-child {
@@ -13,7 +13,7 @@
     @include clearfix;
 
     [class^="col-"] { /* Select all elements with class starting with "col-" */
-        background-color: red;
+        /* background-color: red; */
         float: left;
 
         &:not(:last-child) {    

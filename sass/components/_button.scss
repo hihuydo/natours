@@ -1,6 +1,7 @@
 .btn {
     &:link,
     &:visited { /* Style for unvisited and visited links with class "btn" */
+        font-size: $default-font-size;
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
@@ -56,5 +57,32 @@
         &::after {
             background-color: $color-white;
         }
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block; /* to be able to add padding and height */
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+
+        transition: all .2s; /* Smooth transition (transform) for all properties over 0.2 seconds */
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15); /* Add shadow (x, y, blur, color) on hover */
+        transform: translateY(-2px); /* Move the button up by 2px on hover */
+    }
+
+    &:active {
+        box-shadow: 0 1rem 1rem rgba($color-black, .15); /* Add shadow (x, y, blur, color) on hover */
+
+        transform: translateY(0); /* Move the button down to its original position when active (clicked) */
     }
 }
