@@ -1,0 +1,60 @@
+.btn {
+    &:link,
+    &:visited { /* Style for unvisited and visited links with class "btn" */
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block; /* Make it behave like a block element but stay inline, do it when we give padding or height to a element */
+        border-radius: 10rem;
+        position: relative; /* For positioning the pseudo-element absolutely within the button */
+        
+        transition: all .2s; /* Smooth transition (transform) for all properties over 0.2 seconds */
+    }
+
+    &:hover {
+        transform: translateY(-3px); /* Move the button up by 3px on hover */
+        box-shadow: 0 1rem 2rem rgba($color-black, .2); /* Add shadow (x, y, blur, color) on hover */
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0; /* Fade out the pseudo-element */
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px); /* Move the button up by 1px when active (clicked) */
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2); /* Reduce shadow when active */
+    }
+
+    &::after {
+        content: ""; /* Necessary for pseudo-elements */
+        display: inline-block; /* Make it behave like an inline element (like the btn link and visited but allow width and height */
+        height: 100%; /* Full height of the button */
+        width: 100%; /* Full width of the button */
+        border-radius: 10rem; /* Match the button's border radius */
+        
+        position: absolute; /* Position relative to the nearest positioned ancestor (the button) */
+        top: 0;
+        left: 0;
+        z-index: -1; /* Place it behind the button */
+
+        transition: all .4s; /* Smooth transition for all properties over 0.4 seconds */
+    }
+
+    &--animated {
+        animation-name: moveInBottom; /* Name of the animation */
+        animation-duration: 1s; /* Duration of the animation */
+        animation-iteration-count: 1; /* Number of times the animation will repeat */
+        animation-timing-function: ease-out; /* Easing function for smoothness */
+        animation-fill-mode: backwards; /* Apply the initial state of the animation before it starts */
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-dark-grey;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+}

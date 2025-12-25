@@ -1,0 +1,43 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-dark-grey;
+    padding: 3rem;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 6rem; /* Space below the heading, create space between text and button */
+
+    backface-visibility: hidden; /* Improve performance during animation */
+
+    &--main {
+        display: block; /* Make it a block element to stack the subheading below */
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft; /* Name of the animation */
+        animation-duration: 1s; /* Duration of the animation */
+        animation-delay: 0.5s; /* Delay before the animation starts */
+        animation-iteration-count: 1; /* Number of times the animation will repeat */
+        animation-timing-function: ease-in-out; /* Easing function for smoothness */
+    }
+
+    &--sub {
+        display: block; /* Make it a block element */
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+
+        animation-name: moveInRight; /* Name of the animation */
+        animation-duration: 1s; /* Duration of the animation */
+        animation-delay: 0.5s; /* Delay before the animation starts */
+        animation-iteration-count: 1; /* Number of times the animation will repeat */
+        animation-timing-function: ease-in-out; /* Easing function for smoothness */
+    }
+}
+
