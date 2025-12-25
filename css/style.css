@@ -8,8 +8,45 @@
 
 html {
   font-size: 62.5%;
-  /* 10px/16px = 62.5%, 1rem = 10px, */
+  /* define what 1rem should be, 10px/16px = 62.5%, 1rem = 10px, */
   /* font-size: 10px; is a bad practice because user cannot change the font size in their browser*/ }
+
+body {
+  box-sizing: border-box; }
+
+@keyframes moveInLeft {
+  0% {
+    /* Starting state */
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* Start 100px to the left */ }
+  80% {
+    /* Intermediate state */
+    transform: translateX(1rem);
+    /* Move slightly past the final position */ }
+  100% {
+    /* Final state */
+    opacity: 1;
+    transform: translateX(0);
+    /* End at the final position */ } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -17,35 +54,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* 95% of the viewport height */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /* Cover the entire area */
-  background-position: top;
-  position: relative;
-  /* For positioning the logo box absolutely within the header */
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    /* Position relative to the nearest positioned ancestor (header) */
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    /* Position relative to the nearest positioned ancestor (header) */
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Center the box */
-    text-align: center;
-    /* Center the button inside the box, cause the button is inline-block */ }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -86,40 +95,6 @@ body {
     /* Number of times the animation will repeat */
     animation-timing-function: ease-in-out;
     /* Easing function for smoothness */ }
-
-@keyframes moveInLeft {
-  0% {
-    /* Starting state */
-    opacity: 0;
-    transform: translateX(-10rem);
-    /* Start 100px to the left */ }
-  80% {
-    /* Intermediate state */
-    transform: translateX(1rem);
-    /* Move slightly past the final position */ }
-  100% {
-    /* Final state */
-    opacity: 1;
-    transform: translateX(0);
-    /* End at the final position */ } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(10rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
 
 .btn:link, .btn:visited {
   /* Style for unvisited and visited links with class "btn" */
@@ -187,3 +162,63 @@ body {
   color: #777; }
   .btn--white::after {
     background-color: #fff; }
+
+.header {
+  height: 95vh;
+  /* 95% of the viewport height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* Cover the entire area */
+  background-position: top;
+  position: relative;
+  /* For positioning the logo box absolutely within the header */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    /* Position relative to the nearest positioned ancestor (header) */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* Position relative to the nearest positioned ancestor (header) */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    text-align: center;
+    /* Center the button inside the box, cause the button is inline-block */ }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+  /* Center the block element inside another block element */
+  /* &:last-child {
+        margin-bottom: 0; */ }
+  .row:not(:last-child) {
+    /* Apply the margin-bottom to all elements except the last one */
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    /* Select all elements with class starting with "col-" */
+    background-color: red;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
