@@ -8,6 +8,8 @@
     background-size: cover; /* Cover the entire area */
     background-position: top;
     position: relative; /* For positioning the logo box absolutely within the header */
+    
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /* For Safari */
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 
     &__logo-box {

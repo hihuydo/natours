@@ -1,13 +1,14 @@
 .card {
+    // FUNCTIONALITY
     perspective: 150rem; /* Perspective is the distance between the camera and the card */
     -moz-perspective: 150rem; /* For Firefox */
     position: relative;
-    height: 50rem; /* Set the height of the card, the card parent lost its height because of position absolute on the children */
+    height: 52rem; /* Set the height of the card, the card parent lost its height because of position absolute on the children */
 
     &__side {
         background-color: $color-white;
-        height: 50rem;
-        transition: all .8s;
+        height: 52rem;
+        transition: all .8s ease;
 
         position: absolute;
         top: 0;
@@ -15,7 +16,8 @@
         width: 100%;
         backface-visibility: hidden; /* Hide the back face of the card */
 
-        border-radius: 3px;
+        border-radius: 1rem;
+        overflow: hidden; /* Hide the overflow of the card to make the border radius work despeite images are bigger than the card */
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
         &--front {
@@ -33,11 +35,76 @@
     }
 
     &:hover &__side--front { /* Select the side of the card that is the front and apply the transform to the back side */
-        transform: rotateY(180deg);
+        transform: rotateY(-180deg);
     }
 
     &:hover &__side--back { 
         transform: rotateY(0deg);
         z-index: 10;
+    }
+
+
+    // FRONT SIDE STYLING
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen; /* Blend the image with the gradient */
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* For Safari */
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Clip the image */
+       
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg); /*navigate to the img folder and the nat-5.jpg file from the style.css*/
+        }
+
+        &--2 {
+            background-image: url(../img/nat-5.jpg); /*navigate to the img folder and the nat-5.jpg file from the style.css*/
+        }
+
+        &--3 {
+            background-image: url(../img/nat-5.jpg); /*navigate to the img folder and the nat-5.jpg file from the style.css*/
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        text-align: right;
+
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone; /* For Safari */
+        box-decoration-break: clone; /* clone the decoration of the text (padding) to the next line */
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto; /* Center a block element inside a block element */
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
     }
 }
