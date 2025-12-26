@@ -136,6 +136,9 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
+.u-margin-top-huge {
+  margin-top: 10rem; }
+
 .btn:link, .btn:visited {
   /* Style for unvisited and visited links with class "btn" */
   font-size: 1.6rem;
@@ -203,6 +206,12 @@ body {
   color: #777; }
   .btn--white::after {
     background-color: #fff; }
+
+.btn--green {
+  background-color: #55c57a;
+  color: #fff; }
+  .btn--green::after {
+    background-color: #55c57a; }
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
@@ -318,6 +327,12 @@ body {
       .card__side--back-1 {
         /* Back side of the card 1 */
         background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        /* Back side of the card 2 */
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      .card__side--back-3 {
+        /* Back side of the card 3 */
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
   .card:hover .card__side--front {
     /* Select the side of the card that is the front and apply the transform to the back side */
     transform: rotateY(-180deg); }
@@ -337,10 +352,10 @@ body {
       background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg);
       /*navigate to the img folder and the nat-5.jpg file from the style.css*/ }
     .card__picture--2 {
-      background-image: url(../img/nat-5.jpg);
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-6.jpg);
       /*navigate to the img folder and the nat-5.jpg file from the style.css*/ }
     .card__picture--3 {
-      background-image: url(../img/nat-5.jpg);
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg);
       /*navigate to the img folder and the nat-5.jpg file from the style.css*/ }
   .card__heading {
     font-size: 2.8rem;
@@ -360,6 +375,10 @@ body {
     /* clone the decoration of the text (padding) to the next line */ }
     .card__heading-span--1 {
       background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
   .card__details {
     padding: 3rem; }
     .card__details ul {
@@ -373,6 +392,23 @@ body {
         padding: 1rem; }
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #eee; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    /* center the button inside the card */ }
+  .card__price-box {
+    color: #fff;
+    margin-bottom: 8rem; }
+  .card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
 
 .header {
   height: 95vh;
