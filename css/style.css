@@ -415,15 +415,16 @@ body {
   margin: 0 auto;
   /* Center the story block element */
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 6rem;
   padding-left: 9rem;
+  margin-bottom: 6rem;
   font-size: 1.6rem;
-  transform: skewY(-7deg);
+  transform: skewX(-12deg);
   /* Skew the story block element down by 7 degrees */ }
   .story > * {
     /* Select all child elements of the story block element */
-    transform: skewY(7deg);
+    transform: skewY(12deg);
     /* Skew the child elements up by 7 degrees */ }
   .story__shape {
     width: 15rem;
@@ -436,13 +437,51 @@ body {
     /* For Safari and Chrome */
     shape-outside: circle(50% at 50% 50%);
     /* shape-outside is a CSS property that allows you to define the shape of the content that should be flowed around the float */
-    transform: translateX(-3rem) skewY(7deg);
-    /* move the shape to the left by 3rem and skew it to the right by 12 degrees */ }
+    transform: translateX(-3rem) skewX(12deg);
+    /* move the shape to the left by 3rem and skew it to the right by 12 degrees */
+    position: relative; }
   .story__img {
     height: 100%;
-    /* make the image take up the full height of the shape */ }
+    /* make the image take up the full height of the shape */
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s; }
+  .story:hover .story__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); }
   .story__text {
-    transform: skewY(7deg); }
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.7rem;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+    /* prevent the caption from flickering when it is translated */ }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden;
+  /* hide the overflow of the video */ }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* make the video cover the entire background */ }
 
 .header {
   height: 95vh;
@@ -532,5 +571,5 @@ body {
   margin-top: -10rem; }
 
 .section-stories {
-  padding: 15rem 0;
-  background-color: #f7f7f7; }
+  position: relative;
+  padding: 15rem 0; }
