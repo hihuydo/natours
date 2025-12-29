@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link,
     &:visited { /* Style for unvisited and visited links with class "btn" */
         font-size: $default-font-size;
@@ -10,6 +11,10 @@
         position: relative; /* For positioning the pseudo-element absolutely within the button */
         
         transition: all .2s; /* Smooth transition (transform) for all properties over 0.2 seconds */
+    
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -22,7 +27,9 @@
         }
     }
 
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px); /* Move the button up by 1px when active (clicked) */
         box-shadow: 0 .5rem 1rem rgba($color-black, .2); /* Reduce shadow when active */
     }
