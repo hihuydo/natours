@@ -1,4 +1,19 @@
 @charset "UTF-8";
+/*
+0 - 600px: Phone
+600 - 900px: Tablet portrait
+900 - 1200px: Tablet landscape
+1200 - 1800px: Desktop (normal styles apply)
+1800px +: Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
 /* Browser reset */
 *,
 *::after,
@@ -10,7 +25,28 @@
 html {
   font-size: 62.5%;
   /* define what 1rem should be, 10px/16px = 62.5%, 1rem = 10px, */
-  /* font-size: 10px; is a bad practice because user cannot change the font size in their browser*/ }
+  /* font-size: 10px; is a bad practice because user cannot change the font size in their browser*/
+  /*
+    @include respond(phone) {
+        font-size: 50%;
+    }
+    */
+  /* max-width is used for tab-land because we want to apply the styles for tablet landscape and below */
+  /* max-width is used for tab-port because we want to apply the styles for tablet and below */
+  /* max-width is used for phone because we want to apply the styles for phone and below */
+  /* min-width is used for big-desktop because we want to apply the styles for desktop and above */ }
+  @media (max-width: 93.75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 30%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }

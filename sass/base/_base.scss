@@ -10,6 +10,28 @@
 html {
     font-size: 62.5%; /* define what 1rem should be, 10px/16px = 62.5%, 1rem = 10px, */
     /* font-size: 10px; is a bad practice because user cannot change the font size in their browser*/
+
+    /*
+    @include respond(phone) {
+        font-size: 50%;
+    }
+    */
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 30%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
 }
 
 body {
